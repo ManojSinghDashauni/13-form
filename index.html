@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contact form</title>
+  </head>
+  <body>
+    <main class="container">
+      <h2 class="heading-2">Contact Us</h2>
+      <form class="form" action="/index.html" onsubmit="return checkForm();">
+        <div class="name">
+          <div>
+            <label for="fname" class="name_f"
+              >First Name<span class="astr"> *</span></label
+            >
+            <input type="text" id="fname" name="fname" />
+            <p class="error">This field is required</p>
+          </div>
+
+          <div>
+            <label for="lname" class="name_l"
+              >Last Name <span class="astr">*</span></label
+            >
+            <input type="text" id="lname" name="lname" />
+            <p class="error">This field is required</p>
+          </div>
+        </div>
+
+        <label for="email" class="email"
+          >Email Address <span class="astr">*</span></label
+        >
+        <input type="email" id="email" name="email" />
+        <p class="error">
+          Please enter a valid email address This field is required
+        </p>
+
+        <div class="radio">
+          <label>Query Type <span class="astr">*</span></label
+          ><br />
+          <article>
+            <div>
+              <input type="radio" name="general" id="raio_g" />
+              <label for="raio_g" class="raio_g">General Enquiry</label>
+            </div>
+            <div>
+              <input type="radio" name="raio_s" id="raio_s" />
+              <label for="raio_g" class="raio_s">Support Request</label>
+            </div>
+          </article>
+          <p class="error">Please select a query type</p>
+        </div>
+
+        <label for="text" class="text"
+          >Message <span class="astr">*</span></label
+        >
+        <textarea
+          name="text"
+          id="text"
+          rows="3"
+          style="resize: none"
+        ></textarea>
+        <p class="error">
+          To submit this form, please consent to being contacted
+        </p>
+
+        <div>
+          <input type="checkbox" name="checkbox" id="checkbox" />
+          <label for="checkbox" class="checkbox"
+            >I consent to being contacted by the team
+            <span class="astr">*</span></label
+          >
+          <p class="error">
+            To submit this form, please consent to being contacted
+          </p>
+        </div>
+
+        <input class="btn" type="submit" value="submit" />
+      </form>
+
+      <!-- <div>
+        <img src="./assets/images/icon-success-check.svg" alt="success" />
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </div> -->
+    </main>
+
+    <script>
+      function checkForm() {
+        let error = document.getElementsByName("error");
+        let fn = document.getElementById("#fname");
+
+        var is_valid = false;
+        /* If statements to check if text box is empty */
+        if (fn.value == "") {
+          error.style.display = "inline";
+          is_valid = false;
+        } else {
+          error.style.display = "none";
+          is_valid = true;
+        }
+        return is_valid;
+      }
+    </script>
+
+    <!-- Submit Message Sent! -->
+  </body>
+</html>
